@@ -3,7 +3,7 @@ const cors = require('cors');
 const videoRouter = require('./routes/video');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 80;
 
 // Middleware
 app.use(cors());
