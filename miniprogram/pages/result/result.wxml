@@ -1,0 +1,33 @@
+<!--result.wxml-->
+<view class="container">
+  <view class="video-card">
+    <video 
+      class="video-player" 
+      src="{{videoData.videoUrl}}" 
+      controls
+      autoplay="{{false}}"
+      show-center-play-btn
+      show-fullscreen-btn
+    ></video>
+  </view>
+
+  <view class="info-section">
+    <view class="platform-badge {{videoData.platform}}">
+      <text>{{platformName}}</text>
+    </view>
+    <view class="title">{{videoData.title || '视频标题'}}</view>
+  </view>
+
+  <view class="action-buttons">
+    <button class="download-btn" bindtap="onDownload" loading="{{downloading}}" hover-class="hover">
+      <text>{{downloading ? '下载中...' : '保存到相册'}}</text>
+    </button>
+    <button class="share-btn" bindtap="onShare" hover-class="hover">
+      <text>分享给朋友</text>
+    </button>
+  </view>
+
+  <view class="back-link" bindtap="goBack">
+    <text>返回首页</text>
+  </view>
+</view>

@@ -1,0 +1,40 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="header">
+    <text class="title">视频去水印</text>
+    <text class="subtitle">支持抖音、快手、B站、小红书</text>
+  </view>
+
+  <view class="input-section">
+    <view class="input-box">
+      <textarea 
+        class="url-input" 
+        placeholder="请粘贴视频链接..." 
+        placeholder-class="placeholder"
+        bindinput="onInputChange"
+        value="{{videoUrl}}"
+        auto-height
+      ></textarea>
+    </view>
+    
+    <view class="button-group">
+      <button class="paste-btn" bindtap="onPaste" hover-class="hover">
+        <text>粘贴链接</text>
+      </button>
+      <button class="parse-btn" bindtap="onParse" loading="{{loading}}" hover-class="hover">
+        <text>{{loading ? '解析中...' : '开始解析'}}</text>
+      </button>
+    </view>
+  </view>
+
+  <view class="platform-tags">
+    <view class="tag douyin">抖音</view>
+    <view class="tag kuaishou">快手</view>
+    <view class="tag bilibili">B站</view>
+    <view class="tag xiaohongshu">小红书</view>
+  </view>
+
+  <view class="tips">
+    <text>点击"粘贴链接"自动获取剪贴板内容</text>
+  </view>
+</view>
