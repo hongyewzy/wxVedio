@@ -1,6 +1,6 @@
 // index.js
 const app = getApp();
-const API_BASE = 'http://localhost:3000/api';
+const API_BASE = 'https://springboot-y3aw-238922-10-1317485080.sh.run.tcloudbase.com/api';
 
 Page({
   data: {
