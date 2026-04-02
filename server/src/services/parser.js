@@ -287,12 +287,20 @@ async function resolveShortUrl(url) {
 }
 
 /**
- * 清理水印参数
+ * 清理水印参数和转义字符
  */
 function cleanWatermarkParams(url) {
   if (!url) return url;
-  return url.replace(/watermark=\d/g, 'watermark=0')
-            .replace(/log_parent_rate=\d+/g, 'log_parent_rate=0');
+  // 清理转义字符
+  url = url.replace(/\\u002F/g, '/')
+           .replace(/\\n/g, '')
+           .replace(/\\"/g, '"');
+  // 清理水印参数
+  url = url.replace(/watermark=\d/g, 'watermark=0')
+           .replace(/log_parent_rate=\d+/g, 'log_parent_rate=0');
+  // 关键：将playwm改为play获取无水印版本
+  url = url.replace(/aweme\/v1\/playwm\//g, 'aweme/v1/play/');
+  return url;
 }
 
 /**
